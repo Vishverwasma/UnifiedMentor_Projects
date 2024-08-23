@@ -48,6 +48,7 @@ function showSlide(index){
 
     slides[slideIndex].classList.add("displaySlide");
     navDots[slideIndex].classList.add("active");
+    resetInterval();
 }
 
 function prevSlide(){
@@ -59,5 +60,5 @@ function prevSlide(){
 function nextSlide(){
     slideIndex++;
     showSlide(slideIndex);
-    // resetInterval();
+    resetInterval();
 }
