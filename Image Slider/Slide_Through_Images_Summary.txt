@@ -1,0 +1,36 @@
+# Slide Through Images
+
+ Project Overview
+The 'Slide Through Images' project is designed to create an interactive and user-friendly image slider using HTML, CSS, and JavaScript. It showcases a series of images that can be navigated through either automatically or manually by the user. The slider is built to provide a smooth and aesthetically pleasing user experience.
+
+ Features
+- Auto Slide: The images automatically change every 5 seconds, creating a dynamic presentation without user interaction.
+- Manual Navigation: Users can manually navigate through the images using 'Previous' and 'Next' buttons.
+- Navigation Dots: Users can jump directly to a specific image by clicking on the corresponding dot below the slider.
+- Responsive Design: The slider adapts to various screen sizes and maintains a 16:9 aspect ratio, ensuring it looks great on all devices.
+- Animation Effects: Smooth fade-in effects are applied when transitioning between images.
+
+ Technologies Used
+- HTML5: Provides the structure for the image slider.
+- CSS3: Used for styling the slider, including layout, animations, and responsiveness.
+- JavaScript: Handles the interactive elements, such as the auto-slide feature and navigation controls.
+
+ Installation & Usage
+1. Clone the Repository:
+   ```
+   git clone https://github.com/Vishverwasma/slide-through-images.git
+   ```
+2. Navigate to the Project Directory:
+   ```
+   cd slide-through-images
+   ```
+3. Run the Project:
+   - Open `index.html` in your web browser to view and interact with the image slider.
+
+ Project Information
+- Owner: Vishwas Verma
+- Internship By: Unified Mentor
+- GitHub Repository: [Vishwas Verma's GitHub](https://github.com/Vishverwasma)
+
+ Acknowledgments
+This project was completed as part of an internship under the guidance of Unified Mentor. Special thanks to the mentor team for their support and guidance throughout the development process.
