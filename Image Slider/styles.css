@@ -1,9 +1,19 @@
+#titleOfProject{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: xxx-large;
+    font-style: italic;
+    text-align: center;
+    margin-top: 1rem;  
+    color: #00e7fc;  
+    font-weight: bold;  
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);  
+}
 .slider{
     position: relative;
     max-width: 48rem;
     margin: 0 auto;
     overflow: hidden;
-    overflow-x: auto;
+    /* overflow-x: auto; */
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0 , 0% ,0% ,0.25);
@@ -48,17 +58,8 @@ img.displaySlide{
     animation-name: fade;
     animation-duration: 1.5s;
 }
-.slider button{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    padding: 10px 15px;
-    background-color: hsla(0, 0%, 0%, 0.5%);
-    color: bisque;
-    border: none;
-    cursor: pointer;
-}
+
+
 .slide{
     width: 100%;
     height: 100%;
@@ -74,4 +75,35 @@ img.displaySlide{
 @keyframes fade{
     from{opacity: 0.5;}
     to{opacity: 1;}
+}
+
+
+
+#btns {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 0 1rem; /* Adjusts the spacing between buttons */
+}
+
+.slider button {
+    background: linear-gradient(135deg, rgb(57, 125, 253) 0%, rgba(0, 204, 153, 1) 100%);
+    border-radius: 50%; 
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    border: 2px solid rgba(255, 255, 255, 0.5); 
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+}
+.slider button:hover {
+    opacity: 1; 
+    transform: scale(1.1); 
+    box-shadow: 0px 0px 20px rgba(5, 251, 202, 0.7);
+}
+.slider button:active {
+    transform: scale(0.95); 
 }
