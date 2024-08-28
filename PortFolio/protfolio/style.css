@@ -104,8 +104,8 @@ html {
 }
 
 body {
-  background-color: var(--white);
-  color: var(--sonic-silver);
+  background-color: #d7f8f0;
+  color: #433c3c;
   font-size: 1.6rem;
   line-height: 1.75;
   letter-spacing: 0.2px;
@@ -259,7 +259,7 @@ body::-webkit-scrollbar-thumb {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--white);
+  background-color: #d2a2fc;
   padding-block: 15px;
   border-block-end: 1px solid var(--black_10);
   z-index: 4;
@@ -300,6 +300,7 @@ body::-webkit-scrollbar-thumb {
 
 .navbar {
   position: absolute;
+  background-color: #2cfac7;
   top: calc(100% + 1px);
   left: 0;
   width: 100%;

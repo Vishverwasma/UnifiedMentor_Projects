@@ -15,7 +15,7 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./style.css">
 
   <!-- 
     - google font link
@@ -28,7 +28,7 @@
   <!-- 
     - preload images
   -->
-  <link rel="preload" as="image" href="./assets/images/hero-banner.jpg">
+  <link rel="preload" as="image" href="./hero-banner.jpg">
 
 </head>
 
@@ -38,12 +38,12 @@
     - #HEADER
   -->
 
-  <header class="header" data-header>
+  <header class="header" data-header style="background-color:#CC00FF ">
     <div class="container">
 
       <a href="#" class="logo">Vishwas</a>
 
-      <nav class="navbar" data-navbar>
+      <nav class="navbar" style="background-color: rgb(250, 229, 203);" data-navbar>
         <ul class="navbar-list">
 
           <li>
@@ -51,7 +51,7 @@
           </li>
 
           <li>
-            <a href="#portfolio" class="navbar-link" data-nav-link>Portfolio</a>
+            <a href="#portfolio" class="navbar-link" data-nav-link>Projects Done</a>
           </li>
 
           <li>
@@ -97,18 +97,18 @@
         - #HERO
       -->
 
-      <section class="section hero" id="home" aria-label="hero">
+      <section class="section hero" id="home" aria-label="hero" style="background-color: beige;">
         <div class="container">
 
           <figure class="hero-banner img-holder has-before" style="--width: 640; --height: 840;">
-            <img src="./assets/images/hero-banner.jpg" width="640" height="840" alt="Bernard Smith" class="img-cover">
+            <img src="./hero-banner.jpg" width="640" height="840" alt="Vishwas Verma" class="img-cover">
           </figure>
 
           <div class="hero-content">
 
             <p class="section-subtitle">Vishwas Verma</p>
 
-            <h1 class="h1 hero-title">Software Developer(Backend Developer)</h1>
+            <h1 class="h1 hero-title">Software Developer<br>(Backend Developer)</h1>
 
             <ul class="hero-list">
 
@@ -137,7 +137,7 @@
               </li>
 
               <li>
-                <a href="./assets/Vishwas Verma - Java.pdf" class="list-link">
+                <a href="./Vishwas Verma - Java.pdf" class="list-link">
                   <span class="span">Resume - Java</span>
 
                   <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
@@ -145,7 +145,7 @@
               </li>
 
               <li>
-                <a href="./assets/Vishwas_Verma-QA+Java.pdf" class="list-link">
+                <a href="./Vishwas_Verma-QA+Java.pdf" class="list-link">
                   <span class="span">Resume - QA</span>
 
                   <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
@@ -153,7 +153,7 @@
               </li>
 
               <li>
-                <a href="./assets/Vishwas Verma - Dynamic.pdf" class="list-link">
+                <a href="./Vishwas Verma - Dynamic.pdf" class="list-link">
                   <span class="span">Resume - Dynamic</span>
 
                   <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
@@ -167,7 +167,7 @@
               <li class="list-item">
                 <strong class="strong">0</strong>
 
-                <span class="span">
+                <span class="span" style="color: rgb(255, 0, 162);">
                   Years of<br>
                   Experience
                 </span>
@@ -176,11 +176,56 @@
               <li class="list-item">
                 <strong class="strong">Fresher</strong>
 
-                <span class="span">
+                <span class="span" style="color: rgb(11, 159, 43);">
                   Looking For<br>
                   Opportunity
                 </span>
               </li>
+
+              <a href="https://github.com/Vishverwasma/SeedIT-CPP-Codes_and_Practise-Codes.git">
+                <li class="list-item">
+                  <strong class="strong">C++ Coding</strong>
+  
+                  <span class="span" style="color: rgb(171, 22, 22);">
+                    More than<br>
+                    300+ Practise codes
+                  </span>
+                </li>
+              </a>
+            </ul>
+            <ul class="exp-list">
+              <a href="https://github.com/Vishverwasma/Assignments_CDAC.git">
+                <li class="list-item">
+                  <strong class="strong">CDAC</strong>
+  
+                  <span class="span" style="color: rgb(0, 102, 255);">
+                    Assignments<br>
+                    during CDAC
+                  </span>
+                </li>
+              </a>
+
+              <a href="https://github.com/Vishverwasma/CDC-During-Sept-Batch-2023.git">
+                <li class="list-item">
+                  <strong class="strong">Practise</strong>
+  
+                  <span class="span" style="color: rgb(49, 16, 75);">
+                    codes<br>
+                    during CDAC
+                  </span>
+                </li>
+              </a>
+
+              <a href="https://github.com/Vishverwasma/TrainingForJobs.git">
+                <li class="list-item">
+                  <strong class="strong">Practise</strong>
+  
+                  <span class="span" style="color: rgba(3, 96, 104, 0.749);">
+                    codes in<br>
+                     Java
+                  </span>
+                </li>
+              </a>
 
             </ul>
 
@@ -206,7 +251,7 @@
 
           <p class="section-subtitle">Portfolio</p>
 
-          <h2 class="h2 section-title">Selected Works</h2>
+          <h2 class="h2 section-title">Projects Done</h2>
 
           <ul class="has-scrollbar">
 
@@ -214,7 +259,7 @@
               <div class="card">
 
                 <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
-                  <img src="./assets/images/portfolio-6.jpg" width="600" height="675" loading="lazy" alt="Drug Disttribution Management System"
+                  <img src="./portfolio-6.jpg" width="600" height="675" loading="lazy" alt="Drug Disttribution Management System"
                     class="img-cover">
                 </figure>
 
@@ -224,7 +269,7 @@
 
                   <h3 class="h3 card-title">Drug Disttribution Management System</h3>
 
-                  <p class="card-text">using Spring Boot / MySQL / React.JS</p>
+                  <p class="card-text">Manages drug inventory and distribution using Spring Boot, MySQL, and React.js. Streamlines operations with a robust backend and intuitive frontend for efficient drug-related activities.</p>
 
                 </a>
 
@@ -235,7 +280,7 @@
               <div class="card">
 
                 <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
-                  <img src="./assets/images/portfolio-1.jpg" width="600" height="675" loading="lazy" alt="Basic Calculator"
+                  <img src="./portfolio-1.jpg" width="600" height="675" loading="lazy" alt="Basic Calculator"
                     class="img-cover">
                 </figure>
 
@@ -245,7 +290,7 @@
 
                   <h3 class="h3 card-title">Basic Calculator</h3>
 
-                  <p class="card-text">using HTML/CSS/JavaScript</p>
+                  <p class="card-text"> A web-based calculator using HTML, CSS, and JavaScript. It performs fundamental arithmetic operations with a simple user interface.</p>
 
                 </a>
 
@@ -256,17 +301,17 @@
               <div class="card">
 
                 <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
-                  <img src="./assets/images/portfolio-2.jpg" width="600" height="675" loading="lazy" alt="Image Slider"
+                  <img src="./portfolio-2.jpg" width="600" height="675" loading="lazy" alt="Image Slider"
                     class="img-cover">
                 </figure>
 
-                <a href="#" class="card-content">
+                <a href="https://unified-mentor-projects-imageslider-pmghiatfm.vercel.app/" class="card-content">
 
                   <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
 
                   <h3 class="h3 card-title">Image Slider</h3>
 
-                  <p class="card-text">using HTML/CSS/JavaScript</p>
+                  <p class="card-text"> An image slider built with HTML, CSS, and JavaScript. Provides smooth transitions and easy navigation through a series of images.</p>
 
                 </a>
 
@@ -277,7 +322,7 @@
               <div class="card">
 
                 <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
-                  <img src="./assets/images/portfolio-3.jpg" width="600" height="675" loading="lazy" alt="Personal Portfolio"
+                  <img src="./portfolio-3.jpg" width="600" height="675" loading="lazy" alt="Personal Portfolio"
                     class="img-cover">
                 </figure>
 
@@ -287,7 +332,7 @@
 
                   <h3 class="h3 card-title">Personal Portfolio</h3>
 
-                  <p class="card-text">using HTML/CSS/JavaScript</p>
+                  <p class="card-text"> A personal website created with HTML, CSS, and JavaScript. Displays skills, projects, and achievements, serving as a professional showcase.</p>
 
                 </a>
 
@@ -298,7 +343,7 @@
               <div class="card">
 
                 <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
-                  <img src="./assets/images/portfolio-4.jpg" width="600" height="675" loading="lazy" alt="Home Automation System"
+                  <img src="./portfolio-4.jpg" width="600" height="675" loading="lazy" alt="Home Automation System"
                     class="img-cover">
                 </figure>
 
@@ -308,7 +353,7 @@
 
                   <h3 class="h3 card-title">Home Automation System</h3>
 
-                  <p class="card-text">using C++/Aurduino IDE/IoT</p>
+                  <p class="card-text">An IoT system using C++ and Arduino IDE. Allows remote control of home devices with integrated sensors for automated management.</p>
 
                 </a>
 
@@ -319,7 +364,7 @@
               <div class="card">
 
                 <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
-                  <img src="./assets/images/portfolio-5.jpg" width="600" height="675" loading="lazy" alt="Smart POT"
+                  <img src="./portfolio-5.jpg" width="600" height="675" loading="lazy" alt="Smart POT"
                     class="img-cover">
                 </figure>
 
@@ -329,7 +374,7 @@
 
                   <h3 class="h3 card-title">Smart POT / Gamla</h3>
 
-                  <p class="card-text">IoT/Aurduio IDE/C++/Simploify-3D</p>
+                  <p class="card-text">An IoT plant care system developed with Arduino IDE and C++. Monitors soil moisture and waters plants automatically for efficient care, and Simplify-3D for Modelling.</p>
 
                 </a>
 
@@ -350,7 +395,7 @@
       -->
 
       <section class="section skills has-before" id="skills" aria-label="skills"
-        style="background-image: url('./assets/images/skills-bg.png')">
+        style="background-image: url('./skills-bg.png')">
         <div class="container">
 
           <div class="skills-content">
@@ -464,7 +509,7 @@
 
           <p class="section-subtitle">Timeline</p>
 
-          <h2 class="h2 section-title">Working Period</h2>
+          <h2 class="h2 section-title">Important Periods</h2>
 
           <ul class="timeline-list">
 
@@ -560,7 +605,7 @@
 
             <li>
               <div class="pricing-card">
-                <ion-icon name="logo-java" aria-hidden="true"></ion-icon>
+                <ion-icon name="logo-codepen" aria-hidden="true"></ion-icon>
                 <h3 class="card-title">Java Development</h3>
                 <data class="card-price" value="600">$600</data>
               </div>
@@ -568,7 +613,7 @@
           
             <li>
               <div class="pricing-card">
-                <ion-icon name="logo-spring" aria-hidden="true"></ion-icon>
+                <ion-icon name="code-working-outline" aria-hidden="true"></ion-icon>
                 <h3 class="card-title">Spring Boot Development</h3>
                 <data class="card-price" value="550">$550</data>
               </div>
@@ -592,7 +637,7 @@
           
             <li>
               <div class="pricing-card">
-                <ion-icon name="database" aria-hidden="true"></ion-icon>
+                <ion-icon name="podium-outline" aria-hidden="true"></ion-icon>
                 <h3 class="card-title">Database Management</h3>
                 <data class="card-price" value="400">$400</data>
               </div>
@@ -625,7 +670,7 @@
               <div class="card news-card">
           
                 <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
-                  <img src="./assets/images/blog-1.jpg" width="600" height="675" loading="lazy"
+                  <img src="./blog-1.jpg" width="600" height="675" loading="lazy"
                     alt="Spring Boot 3.0 Released with Major Enhancements" class="img-cover">
                 </figure>
           
@@ -646,7 +691,7 @@
               <div class="card news-card">
           
                 <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
-                  <img src="./assets/images/blog-2.jpg" width="600" height="675" loading="lazy"
+                  <img src="./blog-2.jpg" width="600" height="675" loading="lazy"
                     alt="Java 21 Introduces Pattern Matching and Records" class="img-cover">
                 </figure>
           
@@ -667,7 +712,7 @@
               <div class="card news-card">
           
                 <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
-                  <img src="./assets/images/blog-3.jpg" width="600" height="675" loading="lazy"
+                  <img src="./blog-3.jpg" width="600" height="675" loading="lazy"
                     alt="React 18 Features Concurrent Rendering for Improved Performance" class="img-cover">
                 </figure>
           
@@ -688,7 +733,7 @@
               <div class="card news-card">
           
                 <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
-                  <img src="./assets/images/blog-4.jpg" width="600" height="675" loading="lazy"
+                  <img src="./blog-4.jpg" width="600" height="675" loading="lazy"
                     alt="MySQL 8.1 Released with JSON Improvements and More" class="img-cover">
                 </figure>
           
@@ -719,7 +764,7 @@
         - #CONTACT
       -->
 
-      <section class="section contact" id="contact" aria-label="contact">
+      <section class="section contact" id="contact" aria-label="contact" style="background-color: blanchedalmond;">
         <div class="container">
 
           <div class="contact-content">
@@ -752,7 +797,7 @@
               <li class="contact-item">
                 <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
 
-                <a href="mailto:smith@gmail.com" class="contact-link">vishwasv834@gmail.com</a>
+                <a href="mailto:vishwasv834@gmail.com" class="contact-link">vishwasv834@gmail.com</a>
               </li>
 
               <li class="contact-item">
@@ -853,7 +898,7 @@
   <!-- 
     - custom js link
   -->
-  <script src="./assets/js/script.js" defer></script>
+  <script src="./script.js" defer></script>
 
   <!-- 
     - ionicon link
