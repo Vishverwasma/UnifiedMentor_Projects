@@ -820,7 +820,7 @@
 
           </div>
 
-          <form action="" class="contact-form">
+          <form action="#" class="contact-form">
 
             <input type="text" name="name" aria-label="name" placeholder="Name" required class="input-field">
 
@@ -909,6 +909,49 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!-- For Contact boxes operation
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  emailjs.init('vishwasv834@gmail.com'); // Replace 'your_user_id' with your actual EmailJS User ID
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('.contact-form');
+    
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Get form data
+      const name = form.querySelector('input[name="name"]').value.trim();
+      const email = form.querySelector('input[name="email_address"]').value.trim();
+      const message = form.querySelector('textarea[name="message"]').value.trim();
+
+      // Basic validation
+      if (!name || !email || !message) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      // Validate email format
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      // Send form data using EmailJS
+      emailjs.sendForm('vishwasv834@gmail.com', 'template_nmz4tdh', form)
+        .then(function(response) {
+          alert('Your message has been sent successfully!');
+          form.reset(); // Reset the form
+        }, function(error) {
+          alert('There was an error sending the message.');
+          console.error(error);
+        });
+    });
+  });
+</script> -->
+
 
 </body>
 
