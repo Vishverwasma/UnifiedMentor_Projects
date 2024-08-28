@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vishwas Verma - First Portfolio</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.jpg">
+
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">Vishwas</a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li>
+            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li>
+            <a href="#portfolio" class="navbar-link" data-nav-link>Portfolio</a>
+          </li>
+
+          <li>
+            <a href="#skills" class="navbar-link" data-nav-link>Skills</a>
+          </li>
+
+          <li>
+            <a href="#timeline" class="navbar-link" data-nav-link>Timeline</a>
+          </li>
+
+          <li>
+            <a href="#price" class="navbar-link" data-nav-link>Price</a>
+          </li>
+
+          <li>
+            <a href="#news" class="navbar-link" data-nav-link>News</a>
+          </li>
+
+          <li>
+            <a href="#contact" class="navbar-link" data-nav-link>Contact</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" id="home" aria-label="hero">
+        <div class="container">
+
+          <figure class="hero-banner img-holder has-before" style="--width: 640; --height: 840;">
+            <img src="./assets/images/hero-banner.jpg" width="640" height="840" alt="Bernard Smith" class="img-cover">
+          </figure>
+
+          <div class="hero-content">
+
+            <p class="section-subtitle">Vishwas Verma</p>
+
+            <h1 class="h1 hero-title">Software Developer(Backend Developer)</h1>
+
+            <ul class="hero-list">
+
+              <li>
+                <a href="../protfolio/Backend.html" class="list-link">
+                  <span class="span">Backend Development</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="../protfolio/Frontend.html" class="list-link">
+                  <span class="span">Frontend Development</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="../protfolio/Testing.html" class="list-link">
+                  <span class="span">Software Testing</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="./assets/Vishwas Verma - Java.pdf" class="list-link">
+                  <span class="span">Resume - Java</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="./assets/Vishwas_Verma-QA+Java.pdf" class="list-link">
+                  <span class="span">Resume - QA</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="./assets/Vishwas Verma - Dynamic.pdf" class="list-link">
+                  <span class="span">Resume - Dynamic</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+              </li>
+
+            </ul>
+
+            <ul class="exp-list">
+
+              <li class="list-item">
+                <strong class="strong">0</strong>
+
+                <span class="span">
+                  Years of<br>
+                  Experience
+                </span>
+              </li>
+
+              <li class="list-item">
+                <strong class="strong">Fresher</strong>
+
+                <span class="span">
+                  Looking For<br>
+                  Opportunity
+                </span>
+              </li>
+
+            </ul>
+
+            <a href="#portfolio" class="slide-down-btn" aria-label="scroll down">
+              <ion-icon name="arrow-down" aria-hidden="true"></ion-icon>
+            </a>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PORTFOLIO
+      -->
+
+      <section class="section portfolio" id="portfolio" aria-label="portfolio">
+        <div class="container">
+
+          <p class="section-subtitle">Portfolio</p>
+
+          <h2 class="h2 section-title">Selected Works</h2>
+
+          <ul class="has-scrollbar">
+
+            <li class="scrollbar-item">
+              <div class="card">
+
+                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                  <img src="./assets/images/portfolio-6.jpg" width="600" height="675" loading="lazy" alt="Drug Disttribution Management System"
+                    class="img-cover">
+                </figure>
+
+                <a href="#" class="card-content">
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+
+                  <h3 class="h3 card-title">Drug Disttribution Management System</h3>
+
+                  <p class="card-text">using Spring Boot / MySQL / React.JS</p>
+
+                </a>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="card">
+
+                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                  <img src="./assets/images/portfolio-1.jpg" width="600" height="675" loading="lazy" alt="Basic Calculator"
+                    class="img-cover">
+                </figure>
+
+                <a href="#" class="card-content">
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+
+                  <h3 class="h3 card-title">Basic Calculator</h3>
+
+                  <p class="card-text">using HTML/CSS/JavaScript</p>
+
+                </a>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="card">
+
+                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                  <img src="./assets/images/portfolio-2.jpg" width="600" height="675" loading="lazy" alt="Image Slider"
+                    class="img-cover">
+                </figure>
+
+                <a href="#" class="card-content">
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+
+                  <h3 class="h3 card-title">Image Slider</h3>
+
+                  <p class="card-text">using HTML/CSS/JavaScript</p>
+
+                </a>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="card">
+
+                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                  <img src="./assets/images/portfolio-3.jpg" width="600" height="675" loading="lazy" alt="Personal Portfolio"
+                    class="img-cover">
+                </figure>
+
+                <a href="#" class="card-content">
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+
+                  <h3 class="h3 card-title">Personal Portfolio</h3>
+
+                  <p class="card-text">using HTML/CSS/JavaScript</p>
+
+                </a>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="card">
+
+                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                  <img src="./assets/images/portfolio-4.jpg" width="600" height="675" loading="lazy" alt="Home Automation System"
+                    class="img-cover">
+                </figure>
+
+                <a href="#" class="card-content">
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+
+                  <h3 class="h3 card-title">Home Automation System</h3>
+
+                  <p class="card-text">using C++/Aurduino IDE/IoT</p>
+
+                </a>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="card">
+
+                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                  <img src="./assets/images/portfolio-5.jpg" width="600" height="675" loading="lazy" alt="Smart POT"
+                    class="img-cover">
+                </figure>
+
+                <a href="#" class="card-content">
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+
+                  <h3 class="h3 card-title">Smart POT / Gamla</h3>
+
+                  <p class="card-text">IoT/Aurduio IDE/C++/Simploify-3D</p>
+
+                </a>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #SKILLS
+      -->
+
+      <section class="section skills has-before" id="skills" aria-label="skills"
+        style="background-image: url('./assets/images/skills-bg.png')">
+        <div class="container">
+
+          <div class="skills-content">
+
+            <p class="section-subtitle">Skills</p>
+
+            <h2 class="h2 section-title">Programming Skills</h2>
+
+            <p class="section-text">
+              For several years, I have developed a strong foundation in modern Web Application Development and programming languages, gaining expertise through diverse projects and educational experiences. My journey has been shaped by a deep understanding of core and advanced programming principles, along with hands-on experience in full-stack development and software engineering.
+            </p>
+            <ul class="skills-list">
+              <li class="skills-item">
+                <div class="wrapper">
+                  <h3 class="skill-title">Core Java & Advanced Java</h3>
+                  <data class="skill-value" value="90%">90%</data>
+                </div>
+                <div class="progress-box">
+                  <div class="progress" style="width: 90%"></div>
+                </div>
+              </li>
+            
+              <li class="skills-item">
+                <div class="wrapper">
+                  <h3 class="skill-title">C, C++, C#, .NET, ASP .NET</h3>
+                  <data class="skill-value" value="85%">85%</data>
+                </div>
+                <div class="progress-box">
+                  <div class="progress" style="width: 85%"></div>
+                </div>
+              </li>
+            
+              <li class="skills-item">
+                <div class="wrapper">
+                  <h3 class="skill-title">HTML, CSS & JavaScript</h3>
+                  <data class="skill-value" value="90%">90%</data>
+                </div>
+                <div class="progress-box">
+                  <div class="progress" style="width: 90%"></div>
+                </div>
+              </li>
+            
+              <li class="skills-item">
+                <div class="wrapper">
+                  <h3 class="skill-title">ReactJS, Ajax, Node.js, Express.js</h3>
+                  <data class="skill-value" value="85%">85%</data>
+                </div>
+                <div class="progress-box">
+                  <div class="progress" style="width: 85%"></div>
+                </div>
+              </li>
+            
+              <li class="skills-item">
+                <div class="wrapper">
+                  <h3 class="skill-title">Spring Framework, Spring Boot, Spring MVC, Spring AOP, Maven</h3>
+                  <data class="skill-value" value="90%">90%</data>
+                </div>
+                <div class="progress-box">
+                  <div class="progress" style="width: 90%"></div>
+                </div>
+              </li>
+            
+              <li class="skills-item">
+                <div class="wrapper">
+                  <h3 class="skill-title">MySQL, NoSQL, SQL, Hibernate (ORM), JDBC, HQL</h3>
+                  <data class="skill-value" value="88%">88%</data>
+                </div>
+                <div class="progress-box">
+                  <div class="progress" style="width: 88%"></div>
+                </div>
+              </li>
+            
+              <li class="skills-item">
+                <div class="wrapper">
+                  <h3 class="skill-title">Linux, Git, GitHub, Eclipse IDE, IntelliJ IDE, Selenium, API - Postman, QA</h3>
+                  <data class="skill-value" value="85%">85%</data>
+                </div>
+                <div class="progress-box">
+                  <div class="progress" style="width: 85%"></div>
+                </div>
+              </li>
+            
+              <li class="skills-item">
+                <div class="wrapper">
+                  <h3 class="skill-title">Data Structures & Algorithms, Object-Oriented Programming</h3>
+                  <data class="skill-value" value="92%">92%</data>
+                </div>
+                <div class="progress-box">
+                  <div class="progress" style="width: 92%"></div>
+                </div>
+              </li>
+            </ul>
+            
+          </div>
+
+          <div class="skills-banner has-before"></div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #TIMELINE
+      -->
+
+      <section class="section timeline" id="timeline" aria-label="timeline">
+        <div class="container">
+
+          <p class="section-subtitle">Timeline</p>
+
+          <h2 class="h2 section-title">Working Period</h2>
+
+          <ul class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h3 class="item-period">August, 2024 - Today</h3>
+
+              <p class="item-title">Software Development - Intern at Prodigy InfoTech (1 month Internship)</p>
+
+              <p class="item-address">(Remote) Haryana , India</p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h3 class="item-period">August, 2024 - Today</h3>
+
+              <p class="item-title">Backend Development Internship (6 month Internship)</p>
+
+              <p class="item-address">(Remote) Pune ,Maharashtra ,India</p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h3 class="item-period">January, 2022 - Feburary, 2022</h3>
+
+              <p class="item-title">Training/Internship in IoT and Embedded System</p>
+
+              <p class="item-address">(Remote) NIELIT, India</p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h3 class="item-period">April, 2022 - May, 2022</h3>
+
+              <p class="item-title">Training/Internship in Java Programming</p>
+
+              <p class="item-address">(Remote) NIELIT, India</p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h3 class="item-period">April, 2022 - May, 2022</h3>
+
+              <p class="item-title">Training/Internship in Python Programming, and Data Science</p>
+
+              <p class="item-address">(Remote) NIELIT, India</p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h3 class="item-period">April, 2022 - May, 2022</h3>
+
+              <p class="item-title">Internship from IDEA Lab</p>
+
+              <p class="item-address">AICTE Lab and BIT Durg ,Chhattisgarh ,India</p>
+
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PRICING
+      -->
+
+      <section class="section pricing" id="price" aria-label="price">
+        <div class="container">
+
+          <div class="pricing-content">
+
+            <p class="section-subtitle">Pricing</p>
+
+            <h2 class="h2 section-title">Service Prices</h2>
+
+            <p class="section-text">
+              For several years, I have developed a strong foundation in modern Web Application Development and programming languages, gaining expertise through diverse projects and educational experiences. My journey has been shaped by a deep understanding of core and advanced programming principles, along with hands-on experience in full-stack development and software engineering.
+            </p>
+
+          </div>
+
+          <ul class="pricing-list">
+
+            <li>
+              <div class="pricing-card">
+                <ion-icon name="logo-java" aria-hidden="true"></ion-icon>
+                <h3 class="card-title">Java Development</h3>
+                <data class="card-price" value="600">$600</data>
+              </div>
+            </li>
+          
+            <li>
+              <div class="pricing-card">
+                <ion-icon name="logo-spring" aria-hidden="true"></ion-icon>
+                <h3 class="card-title">Spring Boot Development</h3>
+                <data class="card-price" value="550">$550</data>
+              </div>
+            </li>
+          
+            <li>
+              <div class="pricing-card">
+                <ion-icon name="logo-react" aria-hidden="true"></ion-icon>
+                <h3 class="card-title">ReactJS Development</h3>
+                <data class="card-price" value="500">$500</data>
+              </div>
+            </li>
+          
+            <li>
+              <div class="pricing-card">
+                <ion-icon name="cloud" aria-hidden="true"></ion-icon>
+                <h3 class="card-title">RESTful API Development</h3>
+                <data class="card-price" value="450">$450</data>
+              </div>
+            </li>
+          
+            <li>
+              <div class="pricing-card">
+                <ion-icon name="database" aria-hidden="true"></ion-icon>
+                <h3 class="card-title">Database Management</h3>
+                <data class="card-price" value="400">$400</data>
+              </div>
+            </li>
+          
+          </ul>
+          
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #NEWS
+      -->
+
+      <section class="section news" id="news" aria-label="news">
+        <div class="container">
+
+          <p class="section-subtitle">News</p>
+
+          <h2 class="h2 section-title">Latest News</h2>
+
+          <ul class="has-scrollbar">
+
+            <li class="scrollbar-item">
+              <div class="card news-card">
+          
+                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                  <img src="./assets/images/blog-1.jpg" width="600" height="675" loading="lazy"
+                    alt="Spring Boot 3.0 Released with Major Enhancements" class="img-cover">
+                </figure>
+          
+                <a href="#" class="card-content">
+          
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          
+                  <time class="card-text" datetime="2023-11-15">November 15, 2023</time>
+          
+                  <h3 class="h3 card-title">Spring Boot 3.0 Released with Major Enhancements</h3>
+          
+                </a>
+          
+              </div>
+            </li>
+          
+            <li class="scrollbar-item">
+              <div class="card news-card">
+          
+                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                  <img src="./assets/images/blog-2.jpg" width="600" height="675" loading="lazy"
+                    alt="Java 21 Introduces Pattern Matching and Records" class="img-cover">
+                </figure>
+          
+                <a href="#" class="card-content">
+          
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          
+                  <time class="card-text" datetime="2023-09-12">September 12, 2023</time>
+          
+                  <h3 class="h3 card-title">Java 21 Introduces Pattern Matching and Records</h3>
+          
+                </a>
+          
+              </div>
+            </li>
+          
+            <li class="scrollbar-item">
+              <div class="card news-card">
+          
+                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                  <img src="./assets/images/blog-3.jpg" width="600" height="675" loading="lazy"
+                    alt="React 18 Features Concurrent Rendering for Improved Performance" class="img-cover">
+                </figure>
+          
+                <a href="#" class="card-content">
+          
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          
+                  <time class="card-text" datetime="2023-06-21">June 21, 2023</time>
+          
+                  <h3 class="h3 card-title">React 18 Features Concurrent Rendering for Improved Performance</h3>
+          
+                </a>
+          
+              </div>
+            </li>
+          
+            <li class="scrollbar-item">
+              <div class="card news-card">
+          
+                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                  <img src="./assets/images/blog-4.jpg" width="600" height="675" loading="lazy"
+                    alt="MySQL 8.1 Released with JSON Improvements and More" class="img-cover">
+                </figure>
+          
+                <a href="#" class="card-content">
+          
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          
+                  <time class="card-text" datetime="2023-04-10">April 10, 2023</time>
+          
+                  <h3 class="h3 card-title">MySQL 8.1 Released with JSON Improvements and More</h3>
+          
+                </a>
+          
+              </div>
+            </li>
+          
+          </ul>
+          
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #CONTACT
+      -->
+
+      <section class="section contact" id="contact" aria-label="contact">
+        <div class="container">
+
+          <div class="contact-content">
+
+            <p class="section-subtitle">Contact</p>
+
+            <h2 class="h2 section-title">Get In Touch</h2>
+
+            <p class="section-text">
+              Please fill out the form on this section to contact with me. Or call between 10:00 a.m. and 8:00 p.m. IST,
+              Monday through Friday
+            </p>
+
+            <ul class="contact-list">
+
+              <li class="contact-item">
+                <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+
+                <address class="contact-link">
+                  Durga PG ,Mukai Nagar ,Hinjewadi ,Phase-1 ,Pune ,Maharashtra ,India
+                </address>
+              </li>
+
+              <li class="contact-item">
+                <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+
+                <a href="tel:+07742691291" class="contact-link">+91 6266 095 034</a>
+              </li>
+
+              <li class="contact-item">
+                <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+
+                <a href="mailto:smith@gmail.com" class="contact-link">vishwasv834@gmail.com</a>
+              </li>
+
+              <li class="contact-item">
+                <ion-icon name="globe-outline" aria-hidden="true"></ion-icon>
+
+                <a href="https://www.linkedin.com/in/vishwas-verma-364418138/" class="contact-link">Linkedin</a>
+              </li>
+
+              <li class="contact-item">
+                <ion-icon name="logo-github" aria-hidden="true"></ion-icon>
+
+                <a href="https://github.com/Vishverwasma" class="contact-link">GitHub</a>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <form action="" class="contact-form">
+
+            <input type="text" name="name" aria-label="name" placeholder="Name" required class="input-field">
+
+            <input type="email" name="email_address" aria-label="email" placeholder="Email" required
+              class="input-field">
+
+            <textarea name="message" aria-label="message" placeholder="Message" required class="input-field"></textarea>
+
+            <button type="submit" class="submit-btn">
+              <span class="span">Submit</span>
+
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </button>
+
+          </form>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <p class="copyright">
+        &copy; 2024. All rights reserved by <a href="#" class="copyright-link">Vishwas Verma.</a>
+      </p>
+
+      <ul class="social-list">
+
+        <li>
+          <a href="https://www.facebook.com/vermas.king.58/" class="social-link">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://x.com/Vishwas55943128" class="social-link">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.instagram.com/real_vishwas.verma/" class="social-link">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://github.com/Vishverwasma" class="social-link">
+            <ion-icon name="logo-github"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.linkedin.com/in/vishwas-verma-364418138/" class="social-link">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
