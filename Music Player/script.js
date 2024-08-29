@@ -12,7 +12,7 @@ let volume_slider = document.querySelector('.volume_slider');
 let curr_time = document.querySelector('.current-time');
 let total_duration = document.querySelector('.total-duration');
 let wave = document.getElementById('wave');
-let randomIcon = document.querySelector('.fa-random');
+let randomIcon = document.querySelector('.random-track i');
 let curr_track = document.createElement('audio');
 
 let track_index = 0;
@@ -116,7 +116,22 @@ const music_list = [
 
 let repeatIcon = document.querySelector('.repeat-track i');
 
-loadTrack(track_index);
+
+window.addEventListener('load', () => {
+    if (localStorage.getItem('track_index')) {
+        track_index = parseInt(localStorage.getItem('track_index'));
+    }
+    if (localStorage.getItem('current_time')) {
+        curr_track.currentTime = parseFloat(localStorage.getItem('current_time'));
+    }
+    if (localStorage.getItem('isPlaying') === 'true') {
+        playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+        playpause_btn.addEventListener('click', playTrack);
+    }
+    loadTrack(track_index);
+});
+
+// loadTrack(track_index);
 
 function loadTrack(track_index){
     clearInterval(updateTimer);
@@ -140,6 +155,8 @@ function loadTrack(track_index){
     updateTimer = setInterval(setUpdate, 1000);
 
     curr_track.addEventListener('ended', handleTrackEnd);
+    localStorage.setItem('track_index', track_index);
+
 }
 
 function toggleLoop() {
@@ -162,11 +179,22 @@ function handleTrackEnd() {
 }
 
 function playTrack(){
-    curr_track.play();
+    curr_track.play().catch(error => {
+        console.log('Autooplay Prevented : ',error);
+
+        playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+        isPlaying = false;
+        track_art.classList.remove('rotate');
+        wave.classList.remove('loader');
+
+        playpause_btn.addEventListener('click', playTrack);
+    });
+    if(isPlaying) return;
     isPlaying = true;
     track_art.classList.add('rotate');
     wave.classList.add('loader');
     playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+    localStorage.setItem('isPlaying', 'true');
 }
 
 function pauseTrack(){
@@ -175,6 +203,7 @@ function pauseTrack(){
     track_art.classList.remove('rotate');
     wave.classList.remove('loader');
     playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+    localStorage.setItem('isPlaying', 'false');
 }
 
 function random_bg_color(){
@@ -208,13 +237,15 @@ function randomTrack(){
 }
 
 function playRandom(){
-    isRandom = true;
+    isRandom = true; 
     randomIcon.classList.add('randomActive');
+    randomIcon.style.color = "#00aaff";
 }
 
 function pauseRandom(){
     isRandom = false;
     randomIcon.classList.remove('randomActive');
+    randomIcon.style.color = "#000";
 }
 
 function repeatTrack(){
@@ -228,6 +259,14 @@ function playpauseTrack(){
 }
 
 function nextTrack(){
+    if(isRandom){
+        let randomIndex = Math.floor(Math.random()*music_list.length);
+        while(randomIndex === track_index){
+            randomIndex = Math.floor(Math.random()*music_list.length);
+        }
+        track_index = randomIndex;
+    }
+else{
     if(track_index < music_list.length - 1 && isRandom === false){
         track_index += 1;
     }else if(track_index < music_list.length - 1 && isRandom === true){
@@ -236,15 +275,24 @@ function nextTrack(){
     }else{
         track_index = 0;
     }
-    loadTrack(track_index);
+}    
+loadTrack(track_index);
     playTrack();
 }
 
 function prevTrack(){
-    if(track_index > 0){
-        track_index -= 1;
+    if(isRandom){
+         let randomIndex = Math.floor(Math.random()*music_list.length);
+         while(randomIndex === track_index){
+            randomIndex = Math.floor(Math.random()*music_list.length);
+         }
+         track_index = randomIndex;
     }else{
-        track_index = music_list.length -1;
+        if(track_index > 0){
+            track_index -= 1;
+        }else{
+            track_index = music_list.length -1;
+        }
     }
     loadTrack(track_index);
     playTrack();
@@ -253,6 +301,7 @@ function prevTrack(){
 function seekTo(){
     let seekto = curr_track.duration * (seek_slider.value / 100);
     curr_track.currentTime = seekto;
+    localStorage.setItem('current_time', curr_track.currentTime);
 }
 
 function setVolume(){
@@ -277,5 +326,6 @@ function setUpdate(){
 
         curr_time.textContent = currentMinutes + ":" + currentSeconds;
         total_duration.textContent = durationMinutes + ":" + durationSeconds;
+        localStorage.setItem('current_time', curr_track.currentTime);
     }
 }
