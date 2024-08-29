@@ -127,6 +127,13 @@ function loadTrack(track_index){
     track_artist.textContent = music_list[track_index].artist;
     now_playing.textContent = "Playing music " + (track_index + 1) + " of " + music_list.length;
 
+
+    document.body.style.backgroundImage = "url(" + music_list[track_index].img + ")";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center center";
+
+    
     updateTimer = setInterval(setUpdate, 1000);
 
     curr_track.addEventListener('ended', nextTrack);
