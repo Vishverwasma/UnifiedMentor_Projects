@@ -133,11 +133,14 @@ function loadTrack(track_index){
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundPosition = "center center";
 
-    
+
     updateTimer = setInterval(setUpdate, 1000);
 
-    curr_track.addEventListener('ended', nextTrack);
-    random_bg_color();
+    curr_track.addEventListener('ended', repeatTrack);
+}
+
+function repeatTrack() {
+    playTrack();  // Start playing the track again after it ends
 }
 
 function random_bg_color(){
