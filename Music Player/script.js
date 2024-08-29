@@ -116,7 +116,6 @@ const music_list = [
 
 let repeatIcon = document.querySelector('.repeat-track i');
 
-
 window.addEventListener('load', () => {
     if (localStorage.getItem('track_index')) {
         track_index = parseInt(localStorage.getItem('track_index'));
@@ -125,9 +124,14 @@ window.addEventListener('load', () => {
         curr_track.currentTime = parseFloat(localStorage.getItem('current_time'));
     }
     if (localStorage.getItem('isPlaying') === 'true') {
+        isPlaying = true;
+        track_art.classList.add('rotate');
+        wave.classList.add('loader');
+        playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+    } else {
         playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
-        playpause_btn.addEventListener('click', playTrack);
     }
+    playpause_btn.addEventListener('click', playpauseTrack); // Ensure only one listener
     loadTrack(track_index);
 });
 
@@ -178,52 +182,42 @@ function handleTrackEnd() {
     }
 }
 
-function playTrack(){
-    curr_track.play().catch(error => {
-        console.log('Autooplay Prevented : ',error);
-
-        playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+function playpauseTrack(){
+    console.log("Play/Pause Button Clicked. isPlaying: ", isPlaying);
+    if (isPlaying) {
+        console.log("Pausing Track");
         isPlaying = false;
-        track_art.classList.remove('rotate');
-        wave.classList.remove('loader');
+        pauseTrack();
+    } else {
+        console.log("Playing Track");
+        isPlaying = true;
+        playTrack();
+    }
+}
 
-        playpause_btn.addEventListener('click', playTrack);
+function playTrack(){
+    curr_track.play().then(() => {
+        // Only update UI and localStorage if the track actually plays
+        track_art.classList.add('rotate');  // Add the rotate class
+        wave.classList.add('loader');  // Add the loader class
+        playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';  // Change button to pause icon
+        localStorage.setItem('isPlaying', 'true');  // Store the playing state in localStorage
+    }).catch(error => {
+        console.log('Autoplay Prevented : ', error);
+        isPlaying = false;  // Reset playing state if autoplay is prevented
+        track_art.classList.remove('rotate');  // Reset UI
+        wave.classList.remove('loader'); 
+        playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';  // Change button back to play icon
     });
-    if(isPlaying) return;
-    isPlaying = true;
-    track_art.classList.add('rotate');
-    wave.classList.add('loader');
-    playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
-    localStorage.setItem('isPlaying', 'true');
 }
 
 function pauseTrack(){
-    curr_track.pause();
-    isPlaying = false;
-    track_art.classList.remove('rotate');
-    wave.classList.remove('loader');
-    playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
-    localStorage.setItem('isPlaying', 'false');
-}
+    curr_track.pause();  // Pause the track
+    track_art.classList.remove('rotate');  // Remove rotate class
+    wave.classList.remove('loader');  // Remove loader class
+    playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';  // Change button back to play icon
+    localStorage.setItem('isPlaying', 'false');  // Store the paused state in localStorage
 
-function random_bg_color(){
-    let hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e'];
-    let a;
-
-    function populate(a){
-        for(let i=0; i<6; i++){
-            let x = Math.round(Math.random() * 14);
-            let y = hex[x];
-            a += y;
-        }
-        return a;
-    }
-    let Color1 = populate('#');
-    let Color2 = populate('#');
-    var angle = 'to right';
-
-    let gradient = 'linear-gradient(' + angle + ',' + Color1 + ', ' + Color2 + ")";
-    document.body.style.background = gradient;
 }
 
 function reset(){
@@ -254,9 +248,6 @@ function repeatTrack(){
     playTrack();
 }
 
-function playpauseTrack(){
-    isPlaying ? pauseTrack() : playTrack();
-}
 
 function nextTrack(){
     if(isRandom){
@@ -328,4 +319,23 @@ function setUpdate(){
         total_duration.textContent = durationMinutes + ":" + durationSeconds;
         localStorage.setItem('current_time', curr_track.currentTime);
     }
+}
+function random_bg_color(){
+    let hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e'];
+    let a;
+
+    function populate(a){
+        for(let i=0; i<6; i++){
+            let x = Math.round(Math.random() * 14);
+            let y = hex[x];
+            a += y;
+        }
+        return a;
+    }
+    let Color1 = populate('#');
+    let Color2 = populate('#');
+    var angle = 'to right';
+
+    let gradient = 'linear-gradient(' + angle + ',' + Color1 + ', ' + Color2 + ")";
+    document.body.style.background = gradient;
 }
