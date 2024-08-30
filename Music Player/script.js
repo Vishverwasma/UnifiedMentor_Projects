@@ -131,7 +131,7 @@ window.addEventListener('load', () => {
     } else {
         playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
     }
-    playpause_btn.addEventListener('click', playpauseTrack); // Ensure only one listener
+    playpause_btn.addEventListener('click', playpauseTrack);
     loadTrack(track_index);
 });
 
@@ -140,27 +140,19 @@ window.addEventListener('load', () => {
 function loadTrack(track_index){
     clearInterval(updateTimer);
     reset();
-
     curr_track.src = music_list[track_index].music;
     curr_track.load();
-
     track_art.style.backgroundImage = "url(" + music_list[track_index].img + ")";
     track_name.textContent = music_list[track_index].name;
     track_artist.textContent = music_list[track_index].artist;
     now_playing.textContent = "Playing music " + (track_index + 1) + " of " + music_list.length;
-
-
     document.body.style.backgroundImage = "url(" + music_list[track_index].img + ")";
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundPosition = "center center";
-
-
     updateTimer = setInterval(setUpdate, 1000);
-
     curr_track.addEventListener('ended', handleTrackEnd);
     localStorage.setItem('track_index', track_index);
-
 }
 
 function toggleLoop() {
@@ -175,14 +167,24 @@ function toggleLoop() {
 
 function handleTrackEnd() {
     if (isLooping) {
-        curr_track.currentTime = 0; // Reset to the beginning without reloading
-        curr_track.play();
+        curr_track.currentTime = 0;
+        if(playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>')
+        {
+            curr_track.play();
+        }else if(playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>') {
+            curr_track.pause();
+        }
     } else {
         nextTrack(); // Proceed to the next track if not looping
     }
 }
 
+let debounceTimeout = null;
+
 function playpauseTrack(){
+    
+    if (debounceTimeout) return;
+
     console.log("Play/Pause Button Clicked. isPlaying: ", isPlaying);
     if (isPlaying) {
         console.log("Pausing Track");
@@ -193,31 +195,32 @@ function playpauseTrack(){
         isPlaying = true;
         playTrack();
     }
+    debounceTimeout = setTimeout(() => {
+        debounceTimeout = null;
+    }, 500); 
 }
 
 function playTrack(){
     curr_track.play().then(() => {
-        // Only update UI and localStorage if the track actually plays
-        track_art.classList.add('rotate');  // Add the rotate class
-        wave.classList.add('loader');  // Add the loader class
-        playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';  // Change button to pause icon
-        localStorage.setItem('isPlaying', 'true');  // Store the playing state in localStorage
+        track_art.classList.add('rotate');
+        wave.classList.add('loader');
+        playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+        localStorage.setItem('isPlaying', 'true');
     }).catch(error => {
         console.log('Autoplay Prevented : ', error);
-        isPlaying = false;  // Reset playing state if autoplay is prevented
-        track_art.classList.remove('rotate');  // Reset UI
+        isPlaying = false;
+        track_art.classList.remove('rotate');
         wave.classList.remove('loader'); 
-        playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';  // Change button back to play icon
+        playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
     });
 }
 
 function pauseTrack(){
-    curr_track.pause();  // Pause the track
-    track_art.classList.remove('rotate');  // Remove rotate class
-    wave.classList.remove('loader');  // Remove loader class
-    playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';  // Change button back to play icon
-    localStorage.setItem('isPlaying', 'false');  // Store the paused state in localStorage
-
+        curr_track.pause();
+        track_art.classList.remove('rotate');
+        wave.classList.remove('loader');
+        playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+        localStorage.setItem('isPlaying', 'false');
 }
 
 function reset(){

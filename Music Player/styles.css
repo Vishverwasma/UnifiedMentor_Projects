@@ -1,6 +1,7 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     background: linear-gradient(to right, #bc3d7a, #57d5ff);
+    font-weight: bold;
 }
 .player{
     height: 95vh;
