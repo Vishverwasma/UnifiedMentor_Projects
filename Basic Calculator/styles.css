@@ -1,5 +1,5 @@
 body{
-    margin: 0;
+    margin: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,4 +53,13 @@ button:active{
 }
 .operator-btn:active{
     background-color: hsl(35, 100%, 75%);
+}
+.advanced-operator-btn{
+    background-color: hsl(120, 100%, 40%);
+}
+.advanced-operator-btn:hover{
+    background-color: hsl(120, 100%, 50%);
+}
+.advanced-operator-btn:active{
+    background-color: hsl(120, 100%, 60%);
 }
