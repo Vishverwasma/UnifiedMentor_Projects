@@ -111,6 +111,12 @@ const music_list = [
         name : 'Wake Up in The Sky',
         artist : 'Bruno Mars',
         music : './Wake Up in The Sky.mp3'
+    },
+    {
+        img : './MoralOfTheStory.jpg',
+        name : 'Moral Of The Story',
+        artist : 'Ashe',
+        music : './MoralOfTheStory.mp3'
     }
 ];
 
