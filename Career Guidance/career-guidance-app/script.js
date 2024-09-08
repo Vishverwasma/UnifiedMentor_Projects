@@ -127,4 +127,36 @@ function handleLocationSelection() {
 }
 
 handleLocationSelection();
+
+function displayColleges(colleges) {
+    const collegeResultsDiv = document.getElementById('college-results');
+    const collegeTableBody = document.querySelector('#college-table tbody');
+
+    // Clear previous results
+    collegeTableBody.innerHTML = '';
+
+    if (colleges.length > 0) {
+        collegeResultsDiv.style.display = 'block'; // Show the results section
+        colleges.forEach(college => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${college.name}</td>
+                <td>${college.location}</td>
+                <td>${college.fees}</td>
+                <td>${college.eligibilityCriteria}</td>
+                <td>${college.scholarshipSchemes}</td>
+                <td>${college.placementOptions}</td>
+                <td>${college.ranking}</td>
+                <td>${college.housingFacilities}</td>
+                <td>${college.minCgpa}</td>
+                <td>${college.entranceExamCutoff}</td>
+                <td><a href="college-details.html?id=${college.id}">View Details</a></td>
+            `;
+            collegeTableBody.appendChild(row);
+        });
+    } else {
+        collegeResultsDiv.style.display = 'none'; // Hide if no colleges found
+        alert('No colleges found for the selected career.');
+    }
+}
 });

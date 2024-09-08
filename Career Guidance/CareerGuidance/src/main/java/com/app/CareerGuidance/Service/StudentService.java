@@ -22,4 +22,11 @@ public class StudentService {
         }
         return null;
     }
+
+	public void deleteStudent(String email) {
+        Student student = studentRepository.findByEmail(email);
+        if (student != null) {
+            studentRepository.delete(student);
+        }
+	}
 }

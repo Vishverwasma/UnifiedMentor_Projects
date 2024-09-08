@@ -24,5 +24,12 @@ public class AdminService {
     public Admin saveAdmin(Admin admin) {
         return adminRepository.save(admin);
     }
+    
+	public void deleteAdmin(String username) {
+	    Admin admin = adminRepository.findByUsername(username);
+	    if (admin != null) {
+	        adminRepository.delete(admin);
+	    }
+	}
 
 }

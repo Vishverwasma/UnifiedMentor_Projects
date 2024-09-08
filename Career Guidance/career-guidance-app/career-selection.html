@@ -19,9 +19,39 @@
             <select id="career" name="career">
                 <option value="engineering">Engineering</option>
                 <option value="management">Management</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="arts">Arts</option>
+                <option value="science">Science</option>
+                <option value="education">Education</option>
+                <option value="law">Law</option>
             </select>
             <button type="submit">Select</button>
         </form>
+        
+        <!-- Table to display college information -->
+        <div id="college-results" style="display: none;">
+            <h2>Colleges Offering Selected Course</h2>
+            <table id="college-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Fees</th>
+                        <th>Eligibility</th>
+                        <th>Scholarships</th>
+                        <th>Placement</th>
+                        <th>Ranking</th>
+                        <th>Housing</th>
+                        <th>CGPA Required</th>
+                        <th>Entrance Exam Cutoff</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- College rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 Career Guidance App</p>

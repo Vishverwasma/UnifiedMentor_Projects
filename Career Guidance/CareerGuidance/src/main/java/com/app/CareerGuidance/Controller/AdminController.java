@@ -40,4 +40,19 @@ public class AdminController {
         Admin savedAdmin = adminService.saveAdmin(newAdmin);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedAdmin);
     }
+    @PutMapping("/update")
+    public ResponseEntity<?> updateAdmin(@RequestBody Admin admin) {
+        Admin updatedAdmin = adminService.saveAdmin(admin);
+        return ResponseEntity.ok(updatedAdmin);
+    }
+    @DeleteMapping("/delete")
+    public ResponseEntity<?> deleteAdmin(@RequestParam String username) {
+        Admin admin = adminService.getAdminByUsername(username);
+        if (admin != null) {
+            adminService.deleteAdmin(username);
+            return ResponseEntity.ok("Admin deleted successfully");
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Admin not found");
+    }
+
 }

@@ -7,5 +7,6 @@ import com.app.CareerGuidance.Model.Student;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
     Student findByEmail(String email);
+    void delete(Student student);
 }
 
