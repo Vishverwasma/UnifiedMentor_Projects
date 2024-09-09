@@ -39,4 +39,24 @@ public class AptitudeTestService {
 
         return allQuestions;
     } 
+
+    public AptitudeTestQuestion addQuestion(AptitudeTestQuestion question) {
+        // Logic to add question to the database
+        return question;
+    }
+    
+    public AptitudeTestResult submitResult(AptitudeTestResult result) {
+    	 int score = calculateScore(result);
+         result.setTotalScore(score);
+         return resultRepository.save(result);
+    }
+    
+    private int calculateScore(AptitudeTestResult result) {
+        // This is a placeholder for your scoring logic
+        // For example, you might check the result object and compute the score
+        return 0; // Replace with actual logic
+    }
+    public List<AptitudeTestQuestion> getAllQuestions() {
+        return questionRepository.findAll();
+    }
 }

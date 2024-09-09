@@ -10,11 +10,18 @@ import com.app.CareerGuidance.Model.College;
 import java.util.List;
 
 public interface CollegeRepository extends JpaRepository<College, Long> {
-    List<College> findByMinCgpaLessThanEqual(double cgpa);
+	List<College> findByMinCgpaLessThanEqual(double cgpa);
+
     @Query("SELECT c FROM College c WHERE c.minCgpa <= :cgpa AND c.fees <= :maxFees AND c.location = :location AND c.ranking = :ranking")
     List<College> filterColleges(@Param("cgpa") double cgpa, 
                                  @Param("maxFees") double maxFees, 
                                  @Param("location") String location, 
                                  @Param("ranking") String ranking);
+
     List<College> findByLocation(String location);
+
+    @Query("SELECT c FROM College c WHERE c.ranking BETWEEN :startRanking AND :endRanking")
+    List<College> findCollegesByRankingRange(@Param("startRanking") Integer startRanking, 
+                                             @Param("endRanking") Integer endRanking);
+
 }
