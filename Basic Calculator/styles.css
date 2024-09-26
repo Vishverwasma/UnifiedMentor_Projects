@@ -54,7 +54,7 @@ button:active{
 .operator-btn:active{
     background-color: hsl(35, 100%, 75%);
 }
-.advanced-operator-btn{
+/* .advanced-operator-btn{
     background-color: hsl(120, 100%, 40%);
 }
 .advanced-operator-btn:hover{
@@ -62,7 +62,7 @@ button:active{
 }
 .advanced-operator-btn:active{
     background-color: hsl(120, 100%, 60%);
-}
+} */
 
 
 #memory-history {

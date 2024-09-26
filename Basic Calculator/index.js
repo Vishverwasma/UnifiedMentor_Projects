@@ -18,6 +18,7 @@ function calculate(){
             throw new Error("Division by zero");
         }
         display.value = result;
+        saveToMemory(result);
     }
     catch(error){
         display.value = "ERROR";
@@ -28,6 +29,8 @@ function calculate(){
 function calculateSquareRoot(){
     try{
         display.value = Math.sqrt(eval(display.value));
+        display.value = result;
+        saveToMemory(result);
     }
     catch(error){
         display.value = "ERROR";
@@ -38,6 +41,8 @@ function calculateSquareRoot(){
 function calculatePercentage(){
     try{
         display.value = eval(display.value) / 100;
+        display.value = result;
+        saveToMemory(result);
     }
     catch(error){
         display.value = "ERROR";
@@ -53,15 +58,17 @@ function memoryClear(){
 
 // Memory Recall
 function memoryRecall(){
-    display.value += memoryValue;
+    if (memoryValues.length > 0) {
+        display.value = memoryValues[memoryValues.length - 1]; // Recall last saved value
+    }
 }
 
 // Memory Add
 function memoryAdd(){
     if (display.value !== "") {
-        memoryValue += parseFloat(display.value);
-        memoryHistory.push(`M+ : ${parseFloat(display.value)}`);
-        updateMemoryList();
+        let value = parseFloat(display.value);
+        memoryValues.push(value);
+        updateMemoryList(); // Update memory display
         clearDisplay();
     }
 }
@@ -69,13 +76,17 @@ function memoryAdd(){
 // Memory Subtract
 function memorySubtract(){
     if (display.value !== "") {
-        memoryValue -= parseFloat(display.value);
-        memoryHistory.push(`M- : ${parseFloat(display.value)}`);
-        updateMemoryList();
+        let value = -parseFloat(display.value);  // Store the negative value
+        memoryValues.push(value);
+        updateMemoryList(); // Update memory display
         clearDisplay();
     }
 }
 
+function saveToMemory(value) {
+    memoryValues.push(value);
+    updateMemoryList();
+}
 //Error Handling Enhancements
 function calculate(){
     try{
@@ -92,7 +103,7 @@ function calculate(){
 
 function updateMemoryList() {
     memoryList.innerHTML = "";  // Clear the list
-    memoryHistory.forEach((item) => {
+    memoryValues.forEach((item) => {
         const li = document.createElement("li");
         li.textContent = item;
         memoryList.appendChild(li);
