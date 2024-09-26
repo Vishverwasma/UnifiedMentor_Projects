@@ -2,7 +2,7 @@
 
 const display = document.getElementById("display");
 const memoryList = document.getElementById("memory-list");
-let memoryValue = 0;
+// let memoryValue = 0;
 let memoryHistory = [];
 
 function appendToDisplay(input){
@@ -27,12 +27,15 @@ function calculate(){
 
 // Calculate square root
 function calculateSquareRoot(){
-    try{
-        let result = Math.sqrt(eval(display.value));
+    try {
+        let value = eval(display.value);
+        if (value < 0) {
+            throw new Error("Square root of negative number");
+        }
+        let result = Math.sqrt(value);
         display.value = result;
-        saveToMemory(result);
-    }
-    catch(error){
+        saveToMemory(result);  // Save result to memory automatically
+    } catch (error) {
         display.value = "ERROR";
     }
 }
@@ -51,7 +54,7 @@ function calculatePercentage(){
 
 // Memory Clear
 function memoryClear(){
-    memoryValue = 0;
+    // memoryValue = 0;
     memoryHistory = [];
     updateMemoryList();
 }
@@ -68,7 +71,7 @@ function memoryAdd(){
     if (display.value !== "") {
         let value = parseFloat(display.value);
         memoryValues.push(value);
-        updateMemoryList(); // Update memory display
+        updateMemoryList();
         clearDisplay();
     }
 }
@@ -76,30 +79,18 @@ function memoryAdd(){
 // Memory Subtract
 function memorySubtract(){
     if (display.value !== "") {
-        let value = -parseFloat(display.value);  // Store the negative value
+        let value = -parseFloat(display.value);
         memoryValues.push(value);
-        updateMemoryList(); // Update memory display
+        updateMemoryList(); 
         clearDisplay();
     }
 }
 
-//Error Handling Enhancements
-function calculate(){
-    try{
-        let result = eval(display.value);
-        if(result === Infinity || result === -Infinity){
-            throw new Error("Division by zero");
-        }
-        display.value = result;
-    }
-    catch(error){
-        display.value = "ERROR";
-    }
-}
 function saveToMemory(value) {
     memoryValues.push(value);
     updateMemoryList();
 }
+
 function updateMemoryList() {
     memoryList.innerHTML = "";  // Clear the list
     memoryValues.forEach((item) => {
