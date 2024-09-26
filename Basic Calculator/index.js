@@ -28,7 +28,10 @@ function calculate(){
 // Calculate square root
 function calculateSquareRoot(){
     try{
-        display.value = Math.sqrt(eval(display.value));
+        let result = Math.sqrt(eval(display.value));
+        if (isNaN(result)) {
+            throw new Error("Invalid input");
+        }
         display.value = result;
         saveToMemory(result);
     }
@@ -40,7 +43,7 @@ function calculateSquareRoot(){
 // Calculate percentage
 function calculatePercentage(){
     try{
-        display.value = eval(display.value) / 100;
+        let result = eval(display.value) / 100;
         display.value = result;
         saveToMemory(result);
     }
@@ -51,15 +54,14 @@ function calculatePercentage(){
 
 // Memory Clear
 function memoryClear(){
-    memoryValue = 0;
-    memoryHistory = [];
+    memoryValues = [];
     updateMemoryList();
 }
 
 // Memory Recall
 function memoryRecall(){
     if (memoryValues.length > 0) {
-        display.value = memoryValues[memoryValues.length - 1]; // Recall last saved value
+        display.value = memoryValues[memoryValues.length - 1];
     }
 }
 
@@ -68,7 +70,7 @@ function memoryAdd(){
     if (display.value !== "") {
         let value = parseFloat(display.value);
         memoryValues.push(value);
-        updateMemoryList(); // Update memory display
+        updateMemoryList();
         clearDisplay();
     }
 }
