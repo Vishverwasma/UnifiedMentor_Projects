@@ -1,6 +1,9 @@
 //CALCULATOR PROGRAM
 
 const display = document.getElementById("display");
+const memoryList = document.getElementById("memory-list");
+let memoryValue = 0;
+let memoryHistory = [];
 
 function appendToDisplay(input){
     display.value += input;
@@ -10,13 +13,16 @@ function clearDisplay(){
 }
 function calculate(){
     try{
-        display.value = eval(display.value);
+        let result = eval(display.value);
+        if (result === Infinity || result === -Infinity) {
+            throw new Error("Division by zero");
+        }
+        display.value = result;
     }
     catch(error){
         display.value = "ERROR";
     }
 }
-let memoryValue = 0;
 
 // Calculate square root
 function calculateSquareRoot(){
@@ -41,6 +47,8 @@ function calculatePercentage(){
 // Memory Clear
 function memoryClear(){
     memoryValue = 0;
+    memoryHistory = [];
+    updateMemoryList();
 }
 
 // Memory Recall
@@ -50,14 +58,22 @@ function memoryRecall(){
 
 // Memory Add
 function memoryAdd(){
-    memoryValue += parseFloat(display.value);
-    clearDisplay();
+    if (display.value !== "") {
+        memoryValue += parseFloat(display.value);
+        memoryHistory.push(`M+ : ${parseFloat(display.value)}`);
+        updateMemoryList();
+        clearDisplay();
+    }
 }
 
 // Memory Subtract
 function memorySubtract(){
-    memoryValue -= parseFloat(display.value);
-    clearDisplay();
+    if (display.value !== "") {
+        memoryValue -= parseFloat(display.value);
+        memoryHistory.push(`M- : ${parseFloat(display.value)}`);
+        updateMemoryList();
+        clearDisplay();
+    }
 }
 
 //Error Handling Enhancements
@@ -72,4 +88,13 @@ function calculate(){
     catch(error){
         display.value = "ERROR";
     }
+}
+
+function updateMemoryList() {
+    memoryList.innerHTML = "";  // Clear the list
+    memoryHistory.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        memoryList.appendChild(li);
+    });
 }
