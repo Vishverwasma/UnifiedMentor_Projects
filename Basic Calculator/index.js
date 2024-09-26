@@ -29,9 +29,6 @@ function calculate(){
 function calculateSquareRoot(){
     try{
         let result = Math.sqrt(eval(display.value));
-        if (isNaN(result)) {
-            throw new Error("Invalid input");
-        }
         display.value = result;
         saveToMemory(result);
     }
@@ -54,7 +51,8 @@ function calculatePercentage(){
 
 // Memory Clear
 function memoryClear(){
-    memoryValues = [];
+    memoryValue = 0;
+    memoryHistory = [];
     updateMemoryList();
 }
 
@@ -70,7 +68,7 @@ function memoryAdd(){
     if (display.value !== "") {
         let value = parseFloat(display.value);
         memoryValues.push(value);
-        updateMemoryList();
+        updateMemoryList(); // Update memory display
         clearDisplay();
     }
 }
@@ -85,10 +83,6 @@ function memorySubtract(){
     }
 }
 
-function saveToMemory(value) {
-    memoryValues.push(value);
-    updateMemoryList();
-}
 //Error Handling Enhancements
 function calculate(){
     try{
@@ -102,7 +96,10 @@ function calculate(){
         display.value = "ERROR";
     }
 }
-
+function saveToMemory(value) {
+    memoryValues.push(value);
+    updateMemoryList();
+}
 function updateMemoryList() {
     memoryList.innerHTML = "";  // Clear the list
     memoryValues.forEach((item) => {
