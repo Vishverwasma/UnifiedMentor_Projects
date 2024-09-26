@@ -42,11 +42,9 @@ function calculateSquareRoot(){
         }
 
         let result = Math.sqrt(value);
-        
-        if (Number.isInteger(value)) {
-            result = Math.round(result);
-        }
-
+        // if (Number.isInteger(value)) {
+        //     result = Math.round(result);
+        // }
         display.value = result;
         saveToMemory(result);
     } catch (error) {
