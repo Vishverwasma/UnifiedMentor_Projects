@@ -2,7 +2,7 @@
 
 const display = document.getElementById("display");
 const memoryList = document.getElementById("memory-list");
-// let memoryValue = 0;
+let memoryValues = [];
 let memoryHistory = [];
 
 function appendToDisplay(input){
@@ -12,15 +12,14 @@ function clearDisplay(){
     display.value = "";
 }
 function calculate(){
-    try{
+    try {
         let result = eval(display.value);
         if (result === Infinity || result === -Infinity) {
             throw new Error("Division by zero");
         }
         display.value = result;
         saveToMemory(result);
-    }
-    catch(error){
+    } catch (error) {
         display.value = "ERROR";
     }
 }
@@ -28,13 +27,28 @@ function calculate(){
 // Calculate square root
 function calculateSquareRoot(){
     try {
-        let value = eval(display.value);
+        if (display.value === "") {
+            throw new Error("Empty input");
+        }
+
+        let value = eval(display.value);  // Evaluate the current input
+
+        if (isNaN(value)) {
+            throw new Error("Invalid input");
+        }
+
         if (value < 0) {
             throw new Error("Square root of negative number");
         }
+
         let result = Math.sqrt(value);
+        
+        if (Number.isInteger(value)) {
+            result = Math.round(result);
+        }
+
         display.value = result;
-        saveToMemory(result);  // Save result to memory automatically
+        saveToMemory(result);
     } catch (error) {
         display.value = "ERROR";
     }
@@ -55,6 +69,7 @@ function calculatePercentage(){
 // Memory Clear
 function memoryClear(){
     // memoryValue = 0;
+    memoryValues = [];
     memoryHistory = [];
     updateMemoryList();
 }
@@ -81,7 +96,7 @@ function memorySubtract(){
     if (display.value !== "") {
         let value = -parseFloat(display.value);
         memoryValues.push(value);
-        updateMemoryList(); 
+        updateMemoryList();
         clearDisplay();
     }
 }
