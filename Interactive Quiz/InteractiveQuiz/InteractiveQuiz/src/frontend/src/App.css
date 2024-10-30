@@ -1,0 +1,68 @@
+.App {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.question-form {
+  margin-bottom: 20px;
+}
+
+.question-form input {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  padding: 10px;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #007bff;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+.message {
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: green; /* Change to red for error messages */
+}
+.message.error {
+  color: red; /* Change to red for error messages */
+}
