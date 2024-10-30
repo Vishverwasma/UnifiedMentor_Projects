@@ -53,4 +53,14 @@ public class QuestionService {
 		            .orElseThrow(() -> new Exception("Question not found with id: " + id));
 
 	}
+
+	public void deleteQuestion(Long id) throws Exception {
+	    Optional<Question> questionOptional = questionRepository.findById(id);
+	    if (questionOptional.isPresent()) {
+	        questionRepository.deleteById(id); // Delete question by ID if it exists
+	    } else {
+	        throw new Exception("Question not found with id: " + id); // Throw exception if not found
+	    }		
+	}
+	
 }

@@ -1,38 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   max-width: 600px;
   margin: auto;
   padding: 20px;
   font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #f0f4f8, #d1e9ff);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+h1, h2 {
+  color: #2c3e50;
   text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
 }
 
 .question-form {
   margin-bottom: 20px;
+  background: #f4c8c8;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(59, 58, 58, 0.1);
 }
 
-.question-form input {
+.question-form {
   display: block;
   margin: 10px 0;
   padding: 10px;
   width: 100%;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.question-form input[type="text"], 
+.question-form input[type="radio"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #2980b9;
+  outline: none;
 }
 
 button {
   padding: 10px 15px;
-  background-color: #007bff;
+  background-color: #3498db;
   color: white;
   border: none;
+  border-radius: 50px;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button[onClick] {
+  background-color: #e74c3c; /* Red for delete button */
+  margin-right: 5px;
+}
+
+button[onClick]:hover {
+  background-color: #c0392b; /* Darker red on hover */
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 600px) {
+  form {
+    padding: 15px;
+  }
+
+  button {
+    width: 100%; /* Full width buttons on small screens */
+  }
 }
 
 ul {
+  margin-left: 20px;
   list-style-type: none;
   padding: 0;
 }
@@ -47,6 +111,7 @@ nav {
   justify-content: space-around;
   background-color: #007bff;
   padding: 10px;
+  border-radius: 8px;
 }
 
 nav a {
@@ -65,4 +130,29 @@ nav a:hover {
 }
 .message.error {
   color: red; /* Change to red for error messages */
+}
+
+.questions-list {
+  list-style-type: none; /* Remove default list styles */
+  padding: 0;
+}
+
+.questions-list li {
+  background: #ecf0f1;
+  margin: 10px 0;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: flex; 
+  align-items: center;
+  margin: 10px 0;
+  font-size: 16px;
+}
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }

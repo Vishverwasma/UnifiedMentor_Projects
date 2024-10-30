@@ -77,4 +77,14 @@ public class QuestionController {
         }
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteQuestion(@PathVariable Long id) {
+        try {
+            questionService.deleteQuestion(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT); // Return 204 status on successful deletion
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND); // Return 404 status if question not found
+        }
+    }
+
 }

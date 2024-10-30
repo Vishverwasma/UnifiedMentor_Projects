@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link, useParams  } from 'react-
 import axios from 'axios';
 import './App.css'; // Assuming your main component is named App
 import { useNavigate } from 'react-router-dom';
+// import 'ionicons/dist/css/ionicons.min.css';
 
 const QuestionsList = ({ questions, currentQuestionIndex, handleAnswer, answeredQuestions, selectedAnswers }) => {
   if (!questions || questions.length === 0 || currentQuestionIndex >= questions.length) {
@@ -79,7 +80,7 @@ const EditQuestionForm = ({ onEdit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="question-form">
         <h2>Edit Question</h2>
         <input
             type="text"
@@ -331,6 +332,19 @@ const AllQuestions = ({ onEdit }) => {
     fetchAllQuestions();
 }, []);
 
+const handleDeleteQuestion = async (id) => {
+  if (!window.confirm("Are you sure you want to delete this question?")) return;
+
+  try {
+    await axios.delete(`http://localhost:2215/api/questions/delete/${id}`);
+    setQuestions((prevQuestions) => prevQuestions.filter((question) => question.id !== id));
+    alert("Question deleted successfully!");
+  } catch (error) {
+    console.error("Error deleting question:", error.response?.data || error.message);
+    alert("Failed to delete the question. Please try again.");
+  }
+};
+
 if (loading) return <p>Loading...</p>;
 if (error) return <p>{error}</p>;
 
@@ -350,10 +364,16 @@ if (error) return <p>{error}</p>;
                       </ul>
                       <p><strong>Correct Answer:</strong> {question.correctAnswer}</p>
                       <p><strong>Quiz ID:</strong> {question.quizId}</p>
-                      <Link to={`/update/${question.id}`}>
+                      {/* <Link to={`/update/${question.id}`}>
                             <button>Edit Question</button>
-                        </Link>
-                    </li>
+                      </Link> */}
+                        <button onClick={() => onEdit(question.id)} aria-label="Edit Question">
+                            Edit Question
+                        </button>
+                        <button onClick={() => handleDeleteQuestion(question.id)} aria-label="Delete Question">
+                          Delete Question
+                        </button>
+                  </li>
               ))}
           </ul>
       </div>
@@ -400,6 +420,19 @@ const App = () => {
     navigate(`/update/${id}`);
   };
     
+  const handleDeleteQuestion = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this question?")) return;
+
+    try {
+      await axios.delete(`http://localhost:2215/api/questions/delete/${id}`);
+      setQuestions((prevQuestions) => prevQuestions.filter((question) => question.id !== id));
+      alert("Question deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting question:", error.response?.data || error.message);
+      alert("Failed to delete the question. Please try again.");
+    }
+  };
+
   const handlePrint = () => {
     const printWindow = window.open('', '_blank');
     printWindow.document.write('<html><head><title>Questions</title></head><body>');
@@ -431,7 +464,7 @@ const App = () => {
             </nav>
             <Routes>
               <Route path="/" element={<h1>Welcome to the Quiz App!</h1>} />
-              <Route path="/all-questions" element={<AllQuestions onEdit={handleEditClick} />} />
+              <Route path="/all-questions" element={<AllQuestions onEdit={handleEditClick} onDelete={handleDeleteQuestion} />} />
               <Route path="/add-question" element={<AddQuestionForm onAdd={handleAddQuestion} />} />
               <Route path="/update/:questionId" element={<EditQuestionForm questionId={selectedQuestionId} onEdit={handleEditQuestion} />} />
               <Route path="/answer-quiz" element={<AnsweringSite questions={questions} />} />
