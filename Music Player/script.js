@@ -117,6 +117,12 @@ const music_list = [
         name : 'Moral Of The Story',
         artist : 'Ashe',
         music : './MoralOfTheStory.mp3'
+    },
+    {
+        img : './apt.jpg',
+        name : 'Apt',
+        artist : 'Brunno Mars and Rosie',
+        music : './aptByBrunoMarsAndRosie.mp3'
     }
 ];
 
